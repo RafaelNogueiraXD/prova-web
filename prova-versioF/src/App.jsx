@@ -1,0 +1,29 @@
+import { useState } from 'react'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CollapsibleExample from './components/Nav2.jsx';
+import Home from './pages/home.jsx';
+import Carrinho from './pages/carrinho.jsx';
+import Administrador from './pages/administrador.jsx';
+import Produtos from './pages/Produtos.jsx';
+function App() {
+
+  return (
+    <BrowserRouter>
+      <CollapsibleExample />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/carrinho" element={<Carrinho />} />
+        <Route path="/adm" element={<Administrador />} />
+        <Route path="/produtos" element={<Produtos />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
