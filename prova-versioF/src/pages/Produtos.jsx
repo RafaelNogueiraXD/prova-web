@@ -17,7 +17,7 @@ export default function Produtos() {
     const [modalShow, setModalShow] = React.useState(false);
     const [produtos, setProdutos] = useState([]);
     const { totalItens } = useCarrinho();
-
+ 
     useEffect(() => {
         async function fetchProdutos() {
             const produtosData = await getProdutos();
@@ -44,8 +44,8 @@ export default function Produtos() {
                         <h1>Produtos</h1>
                     </Col>
                     <Col className="d-flex justify-content-end align-items-center">
-                        <Button variant="outline-info" className="me-3" onClick={() => setModalShow(true)}> 
-                            <FiShoppingCart className="fs-4" /> 
+                        <Button variant="outline-info" className="me-3" onClick={() => setModalShow(true)}>
+                            <FiShoppingCart className="fs-4" />
                             {totalItens > 0 && <Badge bg="danger" className="ms-2">{totalItens}</Badge>}
                         </Button>
 
