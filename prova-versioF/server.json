@@ -1,15 +1,15 @@
 {
   "produtosDisponiveis": [
     {
-      "id": "1",
-      "nome": "Produto A",
+      "nome": "Produto ds",
       "descricao": "Descrição do Produto A",
       "preco": 20.99,
       "imgSrc": "produto-1.jpg",
       "quantidade": 5,
       "avaliacao": 5,
       "stars": 2,
-      "noCarrinho": false
+      "noCarrinho": false,
+      "id": "1"
     },
     {
       "id": "2",
@@ -42,17 +42,6 @@
       "quantidade": 5,
       "avaliacao": 5,
       "stars": 1.5,
-      "noCarrinho": true
-    },
-    {
-      "id": "5",
-      "nome": "Produto E",
-      "descricao": "Descrição do Produto E",
-      "preco": 18.99,
-      "imgSrc": "produto-1.jpg",
-      "quantidade": 5,
-      "avaliacao": 4,
-      "stars": 4.5,
       "noCarrinho": true
     }
   ]

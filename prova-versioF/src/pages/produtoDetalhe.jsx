@@ -41,7 +41,7 @@ export default function ProdutoDetalhe() {
     <div
       className="min-vh-100 d-flex align-items-center justify-content-center"
       style={{
-        backgroundImage: 'url("./images/bg-produtos.jpg")',
+        backgroundImage: `url("${import.meta.env.BASE_URL}/images/bg-produtos.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -53,7 +53,7 @@ export default function ProdutoDetalhe() {
           <Row className="justify-content-center ">
             <Col md={6} className="d-flex justify-content-center mb-4">
               <img
-                src={"/images/" + produto.imgSrc}
+                src={`${import.meta.env.BASE_URL}/images/${produto.imgSrc}`}
                 className="img-fluid rounded border border-info"
               />
             </Col>
