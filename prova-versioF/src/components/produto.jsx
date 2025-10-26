@@ -1,5 +1,5 @@
 import React from "react";
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
 
 function CardProduto({ title, description, imgSrc }) {
   return (
@@ -7,9 +7,7 @@ function CardProduto({ title, description, imgSrc }) {
       <Card.Img src={imgSrc} alt="Card image" className="bg-opacity-75  " />
       <Card.ImgOverlay>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>
-          {description}
-        </Card.Text>
+        <Card.Text>{description}</Card.Text>
       </Card.ImgOverlay>
     </Card>
   );

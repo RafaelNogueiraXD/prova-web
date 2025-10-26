@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from 'react';
-import {useCarrinho } from './CarrinhoContext.jsx';
+import { createContext, useContext, useState } from "react";
+import { useCarrinho } from "./CarrinhoContext.jsx";
 const ListaCompraContext = createContext();
 
 export const useListaCompra = () => {
@@ -11,11 +11,12 @@ export const ListaCompraProvider = ({ children }) => {
   const { itensCarrinho } = useCarrinho();
   const adicionarItemLista = (itensCarrinho) => {
     console.log("adiciona carrinho a lista de compra");
-
   };
 
   return (
-    <ListaCompraContext.Provider value={{ itensListaCompra, adicionarItemLista }}>
+    <ListaCompraContext.Provider
+      value={{ itensListaCompra, adicionarItemLista }}
+    >
       {children}
     </ListaCompraContext.Provider>
   );
