@@ -28,7 +28,7 @@ function Home() {
                                             <FiShoppingCart /> Carrinho
                                         </Button>
                                     </Link>
-                                    <Link to="/produto">
+                                    <Link to="/produtos">
                                         <Button variant="info" className="btn-lg">
                                             <FaShopify /> Ver Produtos
                                         </Button>

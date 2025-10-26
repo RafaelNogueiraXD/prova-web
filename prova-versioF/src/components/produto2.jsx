@@ -2,17 +2,51 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Button } from 'react-bootstrap';
-
-function CardExemplo({ title, description, imgSrc }) {
+import { IoStar } from "react-icons/io5";
+import { IoStarHalf } from "react-icons/io5";
+import { IoStarOutline } from "react-icons/io5";
+function CardExemplo({id, titulo, desc,  valor, avaliacao, stars, adicionarAoCarrinho,  imgSrc }) {
+      var calStars = []
+    console.log(stars);
+    var numStarts = 0;
+    function isFloat(n) {
+        return Number(n) === n && n % 1 !== 0;
+    }
+    if(isFloat(stars)){
+        var newstars = Math.floor(stars)
+    }else{
+        var newstars = stars
+    }
+    for (let i = 0; i < newstars; i++) {
+        calStars.push(<IoStar />)
+        numStarts++;
+    }
+    if(isFloat(stars)){
+        console.log("entrou");
+        calStars.push(<IoStarHalf />)
+        numStarts++;
+    }
+    for (let i = 0; i <5 - numStarts; i++) {
+        calStars.push(<IoStarOutline />)
+    }
   return (
-    <Row xs={1}>
+    <Row >
       <Col>
         <Card  className='bg-light text-dark mb-4' border='info'>
-          <Card.Img variant="top" src={imgSrc} />
+          <Card.Img variant="top" src={'/images/'+imgSrc} />
           <Card.Body className='text-center'>
-            <Card.Title>{title}</Card.Title>
+            <Card.Title>{titulo}</Card.Title>
               <Card.Text>
-                {description}
+                {desc}
+                 <p className='fs-5 mt-3 text-warning'>
+                    {calStars}
+                    <span className='text-dark ms-2'>
+                      {avaliacao}
+
+                    </span>
+                </p>
+                <p ><b>R$ {valor}</b></p>
+                                
               </Card.Text>
             </Card.Body>
             <Card.Footer className='d-flex justify-content-center'>
