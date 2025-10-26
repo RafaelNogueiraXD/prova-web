@@ -8,7 +8,7 @@ function Home() {
         <div 
             className="min-vh-100 d-flex align-items-center justify-content-center"
             style={{
-                backgroundImage: 'url("/images/bg-home.jpg")',
+                backgroundImage: 'url("./images/bg-home.jpg")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',

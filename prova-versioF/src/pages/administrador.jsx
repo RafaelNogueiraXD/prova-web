@@ -62,7 +62,7 @@ export default function Administrador() {
         <div
             className="bg-dark text-white min-vh-100"
             style={{
-                backgroundImage: 'url("/images/bg-admin.jpg")',
+                backgroundImage: `url("${import.meta.env.BASE_URL}images/bg-admin.jpg")`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',

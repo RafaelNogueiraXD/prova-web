@@ -59,7 +59,7 @@ function TabelaProdutos({ produtos, onEditar, onRemover }) {
                             <td>
                                 {produto.imgSrc && (
                                     <img
-                                        src={`/images/${produto.imgSrc}`}
+                                        src={`${import.meta.env.BASE_URL}images/${produto.imgSrc}`}
                                         alt={produto.nome}
                                         style={{ width: '50px', height: '50px', objectFit: 'cover' }}
                                         className="rounded"

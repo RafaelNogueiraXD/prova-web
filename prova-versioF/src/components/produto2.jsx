@@ -49,7 +49,7 @@ function CardExemplo({id, titulo, desc,  valor, avaliacao, stars, imgSrc }) {
     <Row >
       <Col>
         <Card  className='bg-light text-dark mb-4' border='info'>
-          <Card.Img variant="top" src={'/images/'+imgSrc} />
+          <Card.Img variant="top" src={`${import.meta.env.BASE_URL}images/${imgSrc}`} />
           <Card.Body className='text-center'>
             <Card.Title>{titulo}</Card.Title>
               <Card.Text>

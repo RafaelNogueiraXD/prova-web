@@ -18,7 +18,7 @@ function App() {
 
   return (
     <CarrinhoProvider>
-      <BrowserRouter basename='/'>
+      <BrowserRouter basename='/prova-web'>
         <CollapsibleExample />
         <Routes>
           <Route path="/" element={<Home />} />

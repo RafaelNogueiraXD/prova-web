@@ -21,7 +21,7 @@ export default function ItemCarrinho({ item }) {
     return (
         <Row className="align-items-center">
             <Col xs="auto">
-                <img src={'/images/'+item.imgSrc} alt={item.titulo} style={{ maxWidth: "100px" }} />
+                <img src={`${import.meta.env.BASE_URL}images/${item.imgSrc}`} alt={item.titulo} style={{ maxWidth: "100px" }} />
             </Col>
             <Col>
                 <h5>{item.titulo}</h5>

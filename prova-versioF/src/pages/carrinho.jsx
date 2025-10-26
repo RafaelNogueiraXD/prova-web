@@ -13,7 +13,7 @@ function Carrinho() {
         <div
             className="bg-dark text-white min-vh-100"
             style={{
-                backgroundImage: 'url("/images/bg-carrinho.jpg")',
+                backgroundImage: `url("${import.meta.env.BASE_URL}images/bg-carrinho.jpg")`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
