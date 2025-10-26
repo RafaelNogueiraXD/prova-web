@@ -43,6 +43,17 @@
       "avaliacao": 5,
       "stars": 1.5,
       "noCarrinho": true
+    },
+    {
+      "id": "a5bd",
+      "nome": "ewq",
+      "descricao": "weqewq",
+      "preco": 5,
+      "imgSrc": "produto-1.jpg",
+      "quantidade": 0,
+      "avaliacao": 5,
+      "stars": 4,
+      "noCarrinho": false
     }
   ]
 }
