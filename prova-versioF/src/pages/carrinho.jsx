@@ -4,25 +4,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Button } from 'react-bootstrap';
 import ItemCarrinho from "../components/itemCarrinho.jsx";
-import { useState } from "react";
-import { getProdutoInCarrinho } from "../api/index.jsx";
+import { useCarrinho } from "../contexts/CarrinhoContext.jsx";
 
 function Carrinho() {
-    const [itens, setItens] = useState([]);
-    
-    React.useEffect(() => {
-        async function fetchItensCarrinho() {
-            const produtosNoCarrinho = [];
-            for (let id = 1; id <= 5; id++) {
-                const produto = await getProdutoInCarrinho(id);
-                if (produto) {
-                    produtosNoCarrinho.push(produto);
-                }
-            }
-            setItens(produtosNoCarrinho);
-        }
-        fetchItensCarrinho();
-    }, []);
+    const { itensCarrinho, limparCarrinho, valorTotal, totalItens } = useCarrinho();
 
     return (
         <div
@@ -41,21 +26,45 @@ function Carrinho() {
                         <h1 className="display-4 mb-4">Carrinho de Compras</h1>
                     </div>
                     <div className="bg-light text-dark p-4 rounded shadow-lg bg-opacity-60 mt-4 ">
-                    {itens.length === 0 ? (
-                        <p>Seu carrinho está vazio.</p>
+                    {itensCarrinho.length === 0 ? (
+                        <div className="text-center p-4">
+                            <h4>Seu carrinho está vazio</h4>
+                            <p>Adicione alguns produtos para começar!</p>
+                        </div>
                     ) : (
-                        itens.map((item, index) => (
-                            <div key={index} className="mb-4">
-                                <ItemCarrinho item={item} />
-                                {index < itens.length - 1 && <hr />}
+                        <>
+                            {itensCarrinho.map((item, index) => (
+                                <div key={item.id} className="mb-4">
+                                    <ItemCarrinho item={item} />
+                                    {index < itensCarrinho.length - 1 && <hr />}
+                                </div>
+                            ))}
+                            <hr className="my-4" />
+                            <div className="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5>Total de itens: <span className="text-info">{totalItens}</span></h5>
+                                    <h4>Total: <span className="text-success">R$ {valorTotal}</span></h4>
+                                </div>
                             </div>
-                        ))
+                        </>
                     )}
                     </div>
                     <div>
                     <div className="d-flex justify-content-end mt-4">
-                        <Button variant="danger" className="me-2">Remover Todos</Button>
-                        <Button variant="success">Finalizar Compra</Button>
+                        <Button 
+                            variant="danger" 
+                            className="me-2"
+                            onClick={limparCarrinho}
+                            disabled={itensCarrinho.length === 0}
+                        >
+                            Remover Todos
+                        </Button>
+                        <Button 
+                            variant="success"
+                            disabled={itensCarrinho.length === 0}
+                        >
+                            Finalizar Compra
+                        </Button>
                     </div>
                     </div>
                 </Container>
