@@ -29,7 +29,6 @@ function Carrinho() {
                     {itensCarrinho.length === 0 ? (
                         <div className="text-center p-4">
                             <h4>Seu carrinho está vazio</h4>
-                            <p>Adicione alguns produtos para começar!</p>
                         </div>
                     ) : (
                         <>

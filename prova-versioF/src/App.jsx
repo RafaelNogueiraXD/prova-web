@@ -13,17 +13,19 @@ import Carrinho from './pages/carrinho.jsx';
 import Administrador from './pages/administrador.jsx';
 import Produtos from './pages/Produtos.jsx';
 import NotFound from './pages/notFound.jsx';
+import ProdutoDetalhe from './pages/produtoDetalhe.jsx';
 function App() {
 
   return (
     <CarrinhoProvider>
-      <BrowserRouter basename='/prova-web-2.github.io/'>
+      <BrowserRouter basename='/'>
         <CollapsibleExample />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/carrinho" element={<Carrinho />} />
           <Route path="/admin" element={<Administrador />} />
           <Route path="/produtos" element={<Produtos />} />
+          <Route path="/produtos/:id" element={<ProdutoDetalhe />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

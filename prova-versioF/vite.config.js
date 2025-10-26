@@ -10,5 +10,5 @@ export default defineConfig({
       },
     }),
   ],
-  base: './prova-web-2.github.io/',
+  base: './',
 })
