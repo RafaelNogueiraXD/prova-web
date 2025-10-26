@@ -1,10 +1,10 @@
 import React from "react";
-import { 
-  buscarTodosProdutos, 
-  criarProduto, 
-  atualizarProduto, 
+import {
+  buscarTodosProdutos,
+  criarProduto,
+  atualizarProduto,
   deletarProduto,
-  obterEstatisticasProdutos 
+  obterEstatisticasProdutos,
 } from "../services/produtoService.js";
 import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
@@ -19,9 +19,7 @@ export default function Administrador() {
   const [erro, setErro] = useState(null);
   const [operacaoLoading, setOperacaoLoading] = useState(false);
   const [estatisticas, setEstatisticas] = useState(null);
-  const [abaAtiva, setAbaAtiva] = useState('produtos'); 
-
-
+  const [abaAtiva, setAbaAtiva] = useState("produtos");
 
   const carregarProdutos = async () => {
     try {
@@ -29,12 +27,12 @@ export default function Administrador() {
       setErro(null);
       const [produtosData, stats] = await Promise.all([
         buscarTodosProdutos(),
-        obterEstatisticasProdutos()
+        obterEstatisticasProdutos(),
       ]);
       setProdutos(produtosData);
       setEstatisticas(stats);
     } catch (error) {
-      console.error('erro ', error);
+      console.error("erro ", error);
     } finally {
       setLoading(false);
     }
@@ -47,19 +45,17 @@ export default function Administrador() {
   const cadastrarProduto = async (dadosProduto) => {
     try {
       setOperacaoLoading(true);
-      
+
       if (produtoParaEditar) {
         await atualizarProduto(produtoParaEditar.id, dadosProduto);
-      
       } else {
         await criarProduto(dadosProduto);
       }
       await carregarProdutos();
       setShowModal(false);
       setProdutoParaEditar(null);
-      
     } catch (error) {
-      console.error('  salvar produto:', error);
+      console.error("  salvar produto:", error);
     } finally {
       setOperacaoLoading(false);
     }
@@ -71,18 +67,19 @@ export default function Administrador() {
   };
 
   const removendoProduto = async (produtoId) => {
-    const confirmar = window.confirm('Tem certeza que deseja remover este produto?');
-    
+    const confirmar = window.confirm(
+      "Tem certeza que deseja remover este produto?"
+    );
+
     if (!confirmar) return;
 
     try {
       setOperacaoLoading(true);
       await deletarProduto(produtoId);
-      mostrarAlert('Produto removido com sucesso!', 'warning');
+      mostrarAlert("Produto removido com sucesso!", "warning");
       await carregarProdutos();
-      
     } catch (error) {
-      console.error('Erro ao remover produto:', error);
+      console.error("Erro ao remover produto:", error);
     } finally {
       setOperacaoLoading(false);
     }
@@ -115,7 +112,6 @@ export default function Administrador() {
           <div className="bg-light text-dark mt-4 p-4 rounded shadow-lg bg-opacity-90 w-100">
             <div className="d-flex flex-column align-items-center justify-content-center">
               <h1 className="display-4 mb-4">Área do Administrador</h1>
-              
             </div>
             {loading && (
               <div className="text-center py-5">
@@ -140,16 +136,17 @@ export default function Administrador() {
                 <Col md={12}>
                   <Card className="text-center">
                     <Card.Body>
-                      <Card.Title className="h4 text-primary">{estatisticas.total}</Card.Title>
+                      <Card.Title className="h4 text-primary">
+                        {estatisticas.total}
+                      </Card.Title>
                       <Card.Text>Total de Produtos</Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>
-    
               </Row>
             )}
 
-            {abaAtiva === 'produtos' && !loading && !erro && (
+            {abaAtiva === "produtos" && !loading && !erro && (
               <div className="bg-white p-4 rounded shadow-lg mt-4">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <h2>Gerenciamento de Produtos</h2>
@@ -175,7 +172,6 @@ export default function Administrador() {
                 />
               </div>
             )}
-
           </div>
         </Container>
 

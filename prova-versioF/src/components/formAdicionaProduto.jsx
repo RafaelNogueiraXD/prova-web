@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import { useState, useEffect } from "react";
 
 function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormulario] = useState({
     nome: "",
     descricao: "",
     preco: "",
@@ -18,7 +18,7 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
 
   useEffect(() => {
     if (produtoParaEditar) {
-      setFormData({
+      setFormulario({
         nome: produtoParaEditar.nome || "",
         descricao: produtoParaEditar.descricao || "",
         preco: produtoParaEditar.preco || "",
@@ -29,7 +29,7 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
         noCarrinho: produtoParaEditar.noCarrinho || false,
       });
     } else {
-      setFormData({
+      setFormulario({
         nome: "",
         descricao: "",
         preco: "",
@@ -42,9 +42,9 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
     }
   }, [produtoParaEditar]);
 
-  const handleChange = (e) => {
+  const lidaMudanca = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
+    setFormulario((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
@@ -75,7 +75,7 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
             placeholder="Digite o nome do produto"
             name="nome"
             value={formData.nome}
-            onChange={handleChange}
+            onChange={lidaMudanca}
             required
           />
         </Form.Group>
@@ -88,7 +88,7 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
             placeholder="0.00"
             name="preco"
             value={formData.preco}
-            onChange={handleChange}
+            onChange={lidaMudanca}
             required
           />
         </Form.Group>
@@ -102,7 +102,7 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
           placeholder="Descreva o produto"
           name="descricao"
           value={formData.descricao}
-          onChange={handleChange}
+          onChange={lidaMudanca}
           required
         />
       </Form.Group>
@@ -115,7 +115,7 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
             placeholder="ex: produto-1.jpg"
             name="imgSrc"
             value={formData.imgSrc}
-            onChange={handleChange}
+            onChange={lidaMudanca}
           />
         </Form.Group>
       </Row>
@@ -131,7 +131,7 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
             placeholder="5.0"
             name="avaliacao"
             value={formData.avaliacao}
-            onChange={handleChange}
+            onChange={lidaMudanca}
           />
         </Form.Group>
 
@@ -145,7 +145,7 @@ function FormAdicionaProduto({ produtoParaEditar, onSubmit, onCancelar }) {
             placeholder="5.0"
             name="stars"
             value={formData.stars}
-            onChange={handleChange}
+            onChange={lidaMudanca}
           />
         </Form.Group>
       </Row>

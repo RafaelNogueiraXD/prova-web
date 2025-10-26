@@ -41,7 +41,9 @@ export default function ProdutoDetalhe() {
     <div
       className="min-vh-100 d-flex align-items-center justify-content-center"
       style={{
-        backgroundImage: `url("${import.meta.env.BASE_URL}/images/bg-produtos.jpg")`,
+        backgroundImage: `url("${
+          import.meta.env.BASE_URL
+        }/images/bg-produtos.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

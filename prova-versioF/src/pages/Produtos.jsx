@@ -28,8 +28,10 @@ export default function Produtos() {
         const produtosData = await buscarTodosProdutos();
         setProdutos(produtosData);
       } catch (error) {
-        console.error('Erro ao buscar produtos:', error);
-        setErro('Erro ao carregar produtos. Verifique se o JSON Server está rodando.');
+        console.error("Erro ao buscar produtos:", error);
+        setErro(
+          "Erro ao carregar produtos. Verifique se o JSON Server está rodando."
+        );
       } finally {
         setLoading(false);
       }
@@ -67,14 +69,14 @@ export default function Produtos() {
             </Button>
           </Col>
         </Row>
-        
+
         {/* Tratamento de erro */}
         {erro && (
           <Alert variant="danger" className="mt-4">
             <Alert.Heading>Erro ao carregar produtos</Alert.Heading>
             <p>{erro}</p>
-            <Button 
-              variant="outline-danger" 
+            <Button
+              variant="outline-danger"
               onClick={() => window.location.reload()}
             >
               Tentar novamente
